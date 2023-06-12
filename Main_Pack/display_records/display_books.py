@@ -2,15 +2,10 @@ import sqlite3
 
 # Establish a connection to the database
 conn = sqlite3.connect('library_management.db')
-
+cursor = conn.cursor()
 
 
 def display_all_books():
-<<<<<<< Updated upstream
-    records = conn.execute("select * from books")
-    for i in records:
-        print(i)
-=======
     cursor.execute("select * from books")
     all_books = cursor.fetchall()
 
@@ -22,4 +17,3 @@ def display_all_books():
         print("Genre:", book[3])
         print("Add Date:", book[4])
         print("----------------------------")
->>>>>>> Stashed changes

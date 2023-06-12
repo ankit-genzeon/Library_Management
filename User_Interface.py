@@ -16,7 +16,7 @@ while True:
     if choice == "1":
         db.display_all_books()
     elif choice == "2":
-        dab.display_all_available_books()
+        dab.display_av_books()
     elif choice == "0":
         break
     else:

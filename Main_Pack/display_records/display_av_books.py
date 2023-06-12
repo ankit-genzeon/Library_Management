@@ -2,14 +2,9 @@ import sqlite3
 
 # Establish a connection to the database
 conn = sqlite3.connect('library_management.db')
+cursor = conn.cursor()
 
 
-<<<<<<< Updated upstream
-def display_all_available_books():
-    records = conn.execute("select * from books")
-    for i in records:
-        print(i)
-=======
 def display_av_books():
     # Query to retrieve available books from the "books" table
     select_available_books_query = '''
@@ -28,5 +23,3 @@ def display_av_books():
         print("Genre:", book[3])
         print("Add Date:", book[4])
         print("----------------------------")
-
->>>>>>> Stashed changes
