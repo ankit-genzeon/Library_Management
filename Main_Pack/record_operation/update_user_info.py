@@ -73,4 +73,4 @@ def update_user_info():
     conn.close()
 
 # Usage example
-update_user_info()
+#update_user_info()
