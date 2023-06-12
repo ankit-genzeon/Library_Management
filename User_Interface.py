@@ -4,7 +4,7 @@ from Main_Pack.display_records import display_av_books as dab
 from Main_Pack.book_table_crud_ops import book_operations as bo
 from Main_Pack.record_operation import DisplayUser as du, update_user_info as uui, update_bookTitle_author as ubt
 from Main_Pack.User_package import Add_User as au
-from Main_Pack.Issue_book import Issue_book as Ib, Display_issue_books as dib
+from Main_Pack.Issue_book import Issue_book as Ib, Display_issue_books as dib, return_issue as ri
 
 # Establish a connection to the database
 conn = sqlite3.connect('library_management.db')
@@ -24,10 +24,10 @@ while True:
     print("9. Issue a Book")
     print("10. Display all Issued Books")
     print("11. Update Book's Details")
+    print("12. Return the Book")
     print("0. Exit")
 
-    choice = input("Enter your choice: ")
-
+    choice = input("Enter your choice: \n")
     if choice == "1":
         bo.add_book()
     elif choice == "2":
@@ -50,6 +50,8 @@ while True:
         dib.display_issued_books()
     elif choice == "11":
         ubt.update_book_title_author()
+    elif choice == "12":
+        ri.return_book()
     elif choice == "0":
         break
     else:
