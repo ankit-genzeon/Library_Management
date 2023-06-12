@@ -2,11 +2,11 @@ import sqlite3
 from datetime import date
 
 # Establish a connection to the database
-conn = sqlite3.connect('../../library_management.db')
+conn = sqlite3.connect('library_management.db')
 cursor = conn.cursor()
 
-
 import re
+
 
 def update_user_info():
     # Prompt the user for input
@@ -64,7 +64,8 @@ def update_user_info():
         break
 
     # Update the user's name, email, and phone number
-    cursor.execute("UPDATE users SET username = ?, userEmail = ?, phoneNumber = ? WHERE id = ?", (new_name, new_email, new_phone, user_id))
+    cursor.execute("UPDATE users SET username = ?, userEmail = ?, phoneNumber = ? WHERE id = ?",
+                   (new_name, new_email, new_phone, user_id))
     conn.commit()
 
     print("User information updated successfully!")
@@ -73,4 +74,4 @@ def update_user_info():
     conn.close()
 
 # Usage example
-#update_user_info()
+# update_user_info()

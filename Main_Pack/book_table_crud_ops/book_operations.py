@@ -4,17 +4,18 @@ import re
 from datetime import date
 
 # Establish a connection to the database
-conn = sqlite3.connect('../../library_management.db')
+conn = sqlite3.connect('library_management.db')
 
-#function to add a book
+
+# function to add a book
 def add_book():
     # title - string , trim, not empty,
     # title -string ,trim, not empty
     # genre - string "Fiction" or "Non-Fiction"
     # add_date- date as YYYY-MM-DD
-    title=input("Enter Book title:-")
+    title = input("Enter Book title:-")
     while len(title.strip()) == 0:
-        title=input("ERROR(Please Enter Non-Empty title):-").strip()
+        title = input("ERROR(Please Enter Non-Empty title):-").strip()
 
     author = input("Enter Book Author Name:-")
     while len(author.strip()) == 0:
@@ -29,10 +30,11 @@ def add_book():
     today_date = date.today()
     add_date = today_date.strftime("%Y-%m-%d")
 
-    query = '''INSERT INTO books(title, author, genre, add_date) VALUES(?,?,?,?)'''
+    query = '''INSERT INTO books(title, author, genre, add_date, available) VALUES(?,?,?,?,1)'''
 
     conn.execute(query, (title, author, genre, add_date))
     conn.commit()
+
 
 # add_book()
 
